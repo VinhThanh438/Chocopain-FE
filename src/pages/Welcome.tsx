@@ -1,7 +1,11 @@
+import WelcomeHeader from "../components/Headers/Welcome.header";
+import Slide from "../components/Slide";
+
 const Welcome = () => {
     return (
         <>
-            <h1>Welcome page</h1>
+            <WelcomeHeader/>
+            <Slide/>
         </>
     );
 }
