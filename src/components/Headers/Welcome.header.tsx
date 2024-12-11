@@ -8,7 +8,7 @@ const WelcomeHeader = () => {
         <Router>
             <Navbar className="bg-body-tertiary">
                 <Container>
-                    <Navbar.Brand as={Link} to="/">Brand link</Navbar.Brand>
+                    <Navbar.Brand as={Link} to="/">CHOCOPAIN</Navbar.Brand>
                     <Row>
                         <Col xs="auto">
                             <Link to="/login">

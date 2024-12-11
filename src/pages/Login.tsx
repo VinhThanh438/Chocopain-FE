@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
-import "./login.css";
+import "./auth.css";
 
 const Login = () => {
   const [inputUsername, setInputUsername] = useState("");
