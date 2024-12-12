@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
-import "./auth.css";
+import "../css/auth.css";
+import { Link } from "react-router-dom";
+import { FaFacebook, FaGoogle } from "react-icons/fa";
 
 const Signup = () => {
   const [inputUsername, setInputUsername] = useState("");
@@ -62,9 +64,9 @@ const Signup = () => {
       {/* Overlay */}
       <div className="sign-in__backdrop"></div>
       {/* Form */}
-      <Form className="shadow p-4 bg-white rounded" onSubmit={handleSubmit}>
+      <Form className="shadow p-4 bg-white rounded" onSubmit={handleSubmit} style={{ marginBottom: '50px' }}>
         {/* Header */}
-        <div className="h4 mb-2 text-center">Sign up</div>
+        <div className="h4 mb-2 text-center">Signup</div>
         
         {/* Alert for username/password error */}
         {showUsernamePasswordError && (
@@ -151,14 +153,49 @@ const Signup = () => {
 
         <br />
         {!loading ? (
-          <Button className="w-100" variant="primary" type="submit">
+          <Button className="w-100 mb-3" variant="primary" type="submit">
             Sign up
           </Button>
         ) : (
-          <Button className="w-100" variant="primary" type="submit" disabled>
+          <Button className="w-100" variant="primary" type="submit">
             Registering...
           </Button>
         )}
+
+        {/* Connect with Social Media */}
+        <div className="text-center">
+            <div className="d-flex align-items-center justify-content-center">
+                <hr className="flex-grow-1" style={{ margin: '0 10px', border: '1px solid #212529' }} />
+                <span>Connect with Social Media</span>
+                <hr className="flex-grow-1" style={{ margin: '0 10px', border: '1px solid #212529' }} />
+            </div>
+            <div className="mt-3">
+                <a 
+                    href="#" 
+                    className="btn btn-primary mx-2" 
+                    style={{ backgroundColor: '#4267B2', color: 'white', textDecoration: 'none', padding: '10px 20px', borderRadius: '5px' }}
+                >
+                    <FaFacebook size={20} style={{ marginRight: '5px' }} />
+                    Facebook
+                </a>
+                <a 
+                    href="#" 
+                    className="btn btn-danger mx-2" 
+                    style={{ backgroundColor: '#DB4437', color: 'white', textDecoration: 'none', padding: '10px 20px', borderRadius: '5px' }}
+                >
+                    <FaGoogle size={20} style={{ marginRight: '5px' }} />
+                    Google
+                </a>
+            </div>
+        </div>
+        
+        <div className="text-center mt-3">
+          Already have an account?
+          <Link to="/login">
+            <Button className="px-1 text-decoration-none" variant="link">Login now</Button>
+          </Link>
+        </div>
+
       </Form>
     </div>
   );

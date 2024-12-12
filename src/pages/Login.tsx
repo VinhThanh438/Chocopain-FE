@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
-import "./auth.css";
+import "../css/auth.css";
+import { Link } from "react-router-dom";
+import { FaFacebook, FaGoogle } from "react-icons/fa";
 
 const Login = () => {
   const [inputUsername, setInputUsername] = useState("");
@@ -27,15 +29,13 @@ const Login = () => {
   }
 
   return (
-    <div
-      className="sign-in__wrapper"
-    >
+    <div className="sign-in__wrapper">
       {/* Overlay */}
       <div className="sign-in__backdrop"></div>
       {/* Form */}
       <Form className="shadow p-4 bg-white rounded" onSubmit={handleSubmit}>
         {/* Header */}
-        <div className="h4 mb-2 text-center">Log In</div>
+        <div className="h4 mb-2 text-center">Login</div>
         {/* ALert */}
         {show ? (
           <Alert
@@ -69,19 +69,22 @@ const Login = () => {
             required
           />
         </Form.Group>
+
         <Form.Group className="mb-2" controlId="checkbox">
           <Form.Check type="checkbox" label="Remember me" />
         </Form.Group>
+
         {!loading ? (
           <Button className="w-100" variant="primary" type="submit">
             Log In
           </Button>
         ) : (
-          <Button className="w-100" variant="primary" type="submit" disabled>
+          <Button className="w-100" variant="primary" type="submit">
             Logging In...
           </Button>
         )}
-        <div className="d-grid justify-content-end">
+
+        <div className="d-grid justify-content-end mb-2">
           <Button
             className="text-muted px-0"
             variant="link"
@@ -90,11 +93,41 @@ const Login = () => {
             Forgot password?
           </Button>
         </div>
+
+        {/* Connect with Social Media */}
+        <div className="text-center">
+            <div className="d-flex align-items-center justify-content-center">
+                <hr className="flex-grow-1" style={{ margin: '0 10px', border: '1px solid #212529' }} />
+                <span>Connect with Social Media</span>
+                <hr className="flex-grow-1" style={{ margin: '0 10px', border: '1px solid #212529' }} />
+            </div>
+            <div className="mt-3">
+                <a 
+                    href="#" 
+                    className="btn btn-primary mx-2" 
+                    style={{ backgroundColor: '#4267B2', color: 'white', textDecoration: 'none', padding: '10px 20px', borderRadius: '5px' }}
+                >
+                    <FaFacebook size={20} style={{ marginRight: '5px' }} />
+                    Facebook
+                </a>
+                <a 
+                    href="#" 
+                    className="btn btn-danger mx-2" 
+                    style={{ backgroundColor: '#DB4437', color: 'white', textDecoration: 'none', padding: '10px 20px', borderRadius: '5px' }}
+                >
+                    <FaGoogle size={20} style={{ marginRight: '5px' }} />
+                    Google
+                </a>
+            </div>
+        </div>
+
+        <div className="text-center mt-3">
+          Don't have an account?
+          <Link to="/signup">
+            <Button className="px-1 text-decoration-none" variant="link">Signup now</Button>
+          </Link>
+        </div>
       </Form>
-      {/* Footer */}
-      <div className="w-100 mb-2 position-absolute bottom-0 start-50 translate-middle-x text-white text-center">
-        Made by Hendrik C | &copy;2022
-      </div>
     </div>
   );
 };
