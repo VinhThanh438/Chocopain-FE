@@ -1,7 +1,7 @@
-import { Container, Navbar, Button, Row, Col } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Navbar, Container, Row, Col, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
-const WelcomeHeader = () => {
+const MainHeader = () => {
     return (
         <>
             <Navbar className="bg-body-tertiary">
@@ -10,12 +10,12 @@ const WelcomeHeader = () => {
                     <Row>
                         <Col xs="auto">
                             <Link to="/login">
-                                <Button variant="light">Login</Button>
+                                <Button variant="light">HOME</Button>
                             </Link>
                         </Col>
                         <Col xs="auto">
                             <Link to="/signup">
-                                <Button variant="secondary">Signup</Button>
+                                <Button variant="secondary">HOME</Button>
                             </Link>
                         </Col>
                     </Row>
@@ -25,4 +25,4 @@ const WelcomeHeader = () => {
     );
 }
 
-export default WelcomeHeader;
+export default MainHeader;

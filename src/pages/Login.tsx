@@ -24,7 +24,7 @@ const Login = () => {
 
   const handlePassword = () => {};
 
-  function delay(ms: any) {
+  const delay = (ms: any) => {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
