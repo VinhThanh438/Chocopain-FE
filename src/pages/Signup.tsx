@@ -4,7 +4,7 @@ import { Form, Button, Alert } from "react-bootstrap";
 import "../css/auth.css";
 import { Link } from "react-router-dom";
 import { FaFacebook, FaGoogle } from "react-icons/fa";
-import firebase from "../config/firebase.config";
+// import firebase from "../config/firebase.config";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -19,12 +19,12 @@ const Signup = () => {
   });
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('sign-up-button', {
-      size: 'invisible',
-      defaultCountry: 'VN'
-    })
-  }, []);
+  // useEffect(() => {
+  //   window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('sign-up-button', {
+  //     size: 'invisible',
+  //     defaultCountry: 'VN'
+  //   })
+  // }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -50,18 +50,18 @@ const Signup = () => {
       return;
     }
 
-    const appVerifier = window.recaptchaVerifier;
-    try {
-      const formattedPhoneNumber = `+84${phoneNumber}`;
-      const confirmationResult = await firebase.auth().signInWithPhoneNumber(formattedPhoneNumber, appVerifier);
-      console.log("OTP sent:", confirmationResult);
-      alert("Successfully!");
-    } catch (error) {
-      console.error("Error sending OTP:", error);
-      alert("Failed to send OTP. Please try again.");
-    } finally {
-      setLoading(false);
-    }
+    // const appVerifier = window.recaptchaVerifier;
+    // try {
+    //   const formattedPhoneNumber = `+84${phoneNumber}`;
+    //   const confirmationResult = await firebase.auth().signInWithPhoneNumber(formattedPhoneNumber, appVerifier);
+    //   console.log("OTP sent:", confirmationResult);
+    //   alert("Successfully!");
+    // } catch (error) {
+    //   console.error("Error sending OTP:", error);
+    //   alert("Failed to send OTP. Please try again.");
+    // } finally {
+    //   setLoading(false);
+    // }
   };
 
   return (
